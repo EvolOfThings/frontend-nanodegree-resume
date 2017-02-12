@@ -86,7 +86,7 @@ $(".work-entry").append(HTMLworkDescription.replace("%data%", work.description))
 
 // Bracket notation way of accessing properties of an object
 
-work["jobPosition2"] = "SAS Programmer trainee";
+work["jobPosition2"] = "Clinical SAS Programmer trainee";
 work["employer2"] = "Rang Technologies";
 work["years2"] = "Oct 2015 to Feb 2016";
 work["city2"] = "Piscataway, NJ, US";
