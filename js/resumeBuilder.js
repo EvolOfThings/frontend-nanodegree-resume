@@ -1,3 +1,5 @@
+/*
+
 
 var myname = "Rishad Yamnoor";
 var formattedName = HTMLheaderName.replace("%data%", myname);
@@ -52,6 +54,8 @@ $("#footerContacts").append(bio.github);
 $("#footerContacts").append(bio.blog);
 
 
+
+
 // Dot notation way of accessing properties of the object
 
 bio.location = "Bengaluru";
@@ -67,8 +71,11 @@ $("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
 
 
 
-var work = {};
+*/
 
+
+
+var work = {};
 
 work.jobPosition = "Web Developer";
 work.employer = "Freelance";
@@ -101,6 +108,46 @@ $(".work-entry").append(HTMLworkDescription.replace("%data%", (work["description
 
 
 // JSON for Nested data
+
+
+
+var bio = {
+    "name": "Rishad Yamnoor",
+    "role": ["Web Developer, UI Designer"],
+    "contacts": {
+        "mobile": "966-323-9799",
+        "email": "rishad.yammnoor@gmail.com",
+        "twitter": "@EvolofThings",
+        "github": "evolofthings",
+        "location": "Bengaluru"
+    },
+    "bioPic": "images/WhatsAppDP.jpeg",
+    "welcomeMsg": "Bringing futuristic ideas to reality",
+    "skills": ["HTML", "CSS", "JavaScript", "git", "Design", "Photography", "Sketching"],
+};
+
+
+
+$("#header").append(HTMLheaderName.replace("%data%", bio.name));
+$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
+// $("#header").append(HTMLheaderRole.replace("%data%", bio.role[1]));
+$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
+$("#header").append(HTMLskillsStart);
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
+
+
+
+
 
 var education = {
     "schools": [
@@ -159,18 +206,6 @@ $(".education-entry").append(HTMLonlineURL.replace("%data%", (education.onlineCo
 
 
 
-// var contactGeneric = "Contact me through";
-// var formattedcontactGeneric = HTMLcontactGeneric.replace("%data%", contactGeneric);
-
-// $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-
-// $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-
-// $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter);
-
-// $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-
-// $("#footerContacts").append(HTMLblog.replace("%data%", bio.blog));
 
 
 
