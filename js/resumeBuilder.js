@@ -159,6 +159,19 @@ $(".education-entry").append(HTMLonlineURL.replace("%data%", (education.onlineCo
 
 
 
+// var contactGeneric = "Contact me through";
+// var formattedcontactGeneric = HTMLcontactGeneric.replace("%data%", contactGeneric);
+
+// $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+
+// $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+
+// $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter);
+
+// $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+
+// $("#footerContacts").append(HTMLblog.replace("%data%", bio.blog));
+
 
 
 
