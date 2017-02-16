@@ -107,12 +107,6 @@ $("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 $("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
 
 
-
-*/
-
-// DOT NOTATION ARE WAY OF ACCESSING PROPERITIES OF AN OBJECT.
-
-
 var work = {};
 
 work.jobPosition = "Web Developer";
