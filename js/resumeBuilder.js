@@ -80,12 +80,6 @@ var projects = {
     }
 }
 
-// PROJECTS
-$("#projects").append(HTMLprojectStart);
-$("#projects").append(HTMLprojectTitle.replace("%data%", projects.projects.title));
-$("#projects").append(HTMLprojectDates.replace("%data%", projects.projects.dates));
-$("#projects").append(HTMLprojectDescription.replace("%data%", projects.projects.description));
-$("#projects").append(HTMLprojectImage.replace("%data%", projects.projects.images));
 
 
 
@@ -148,6 +142,12 @@ $(".work-entry").append(HTMLworkLocation.replace("%data%", work.workPlace[1].cit
 $(".work-entry").append(HTMLworkDescription.replace("%data%", work.workPlace[1].description));
 
 
-// PROJECT
+// PROJECTS
+$("#projects").append(HTMLprojectStart);
+$(".project-entry").append(HTMLprojectTitle.replace("%data%", projects.projects.title));
+$(".project-entry").append(HTMLprojectDates.replace("%data%", projects.projects.dates));
+$(".project-entry").append(HTMLprojectDescription.replace("%data%", projects.projects.description));
+$(".project-entry").append(HTMLprojectImage.replace("%data%", projects.projects.images));
+
 
 
