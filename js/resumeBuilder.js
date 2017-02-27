@@ -16,25 +16,6 @@ var bio = {
 };
 
 
-
-$("#header").append(HTMLheaderName.replace("%data%", bio.name));
-$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
-// $("#header").append(HTMLheaderRole.replace("%data%", bio.role[1]));
-$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
-$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
-$("#header").append(HTMLskillsStart);
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[5]));
-
 var education = {
     "schools": [
     {
@@ -68,6 +49,67 @@ var education = {
     ]
 }
 
+
+var work = {
+    "workPlace": [
+    {
+        "jobPosition": "Web Developer",
+        "employer": "Freelance",
+        "years": 0.3,
+        "city": "Remote",
+        "description": "Built websites for clients who hired me through freelance working sites"
+    },
+    {
+        "jobPosition": "Clinical SAS Programmer trainee",
+        "employer": "Rang Technologies",
+        "years": "Oct 2015 to Feb 2016",
+        "city": "Piscataway, NJ, US",
+        "description": "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards"
+    }
+    ]
+}
+
+
+var projects = {
+    "projects":
+    {
+        "title": "Portfolio",
+        "dates": "2017",
+        "description": "Portfolio of projects that I have built as part of Udacity Nanodegree program.",
+        "images": "https://github.com/EvolOfThings/Udacity-Front-End-Nanodegree/blob/master/images/app1.jpg"
+    }
+}
+
+// PROJECTS
+$("#projects").append(HTMLprojectStart);
+$("#projects").append(HTMLprojectTitle.replace("%data%", projects.projects.title));
+$("#projects").append(HTMLprojectDates.replace("%data%", projects.projects.dates));
+$("#projects").append(HTMLprojectDescription.replace("%data%", projects.projects.description));
+$("#projects").append(HTMLprojectImage.replace("%data%", projects.projects.images));
+
+
+
+// BIO
+$("#header").append(HTMLheaderName.replace("%data%", bio.name));
+$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
+// $("#header").append(HTMLheaderRole.replace("%data%", bio.role[1]));
+$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
+$("#header").append(HTMLskillsStart);
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[5]));
+
+
+// EDUCATION
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(HTMLschoolName.replace("%data%", (education.schools[0].name)));
 $(".education-entry").append(HTMLschoolDegree.replace("%data%", (education.schools[0].degree)));
@@ -91,34 +133,13 @@ $(".education-entry").append(HTMLonlineDates.replace("%data%", (education.online
 $(".education-entry").append(HTMLonlineURL.replace("%data%", (education.onlineCourses[1].url)));
 
 
-
-var work = {
-    "workPlace": [
-    {
-        "jobPosition": "Web Developer",
-        "employer": "Freelance",
-        "years": 0.3,
-        "city": "Remote",
-        "description": "Built websites for clients who hired me through freelance working sites"
-    },
-    {
-        "jobPosition": "Clinical SAS Programmer trainee",
-        "employer": "Rang Technologies",
-        "years": "Oct 2015 to Feb 2016",
-        "city": "Piscataway, NJ, US",
-        "description": "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards"
-    }
-    ]
-}
-
-
+// WORK
 $("#workExperience").append(HTMLworkStart);
 $(".work-entry").append(HTMLworkEmployer.replace("%data%", work.workPlace[0].employer));
 $(".work-entry").append(HTMLworkTitle.replace("%data%", work.workPlace[0].jobPosition));
 $(".work-entry").append(HTMLworkDates.replace("%data%", work.workPlace[0].years));
 $(".work-entry").append(HTMLworkLocation.replace("%data%", work.workPlace[0].city));
 $(".work-entry").append(HTMLworkDescription.replace("%data%", work.workPlace[0].description));
-
 
 $(".work-entry").append(HTMLworkEmployer.replace("%data%", work.workPlace[1].employer ));
 $(".work-entry").append(HTMLworkTitle.replace("%data%", work.workPlace[1].jobPosition));
@@ -127,14 +148,6 @@ $(".work-entry").append(HTMLworkLocation.replace("%data%", work.workPlace[1].cit
 $(".work-entry").append(HTMLworkDescription.replace("%data%", work.workPlace[1].description));
 
 
-
-
-
-
-
-
-
-
-
+// PROJECT
 
 
