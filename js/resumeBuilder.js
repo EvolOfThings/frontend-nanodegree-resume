@@ -12,7 +12,7 @@ var bio = {
     },
     "bioPic": "images/WhatsAppDP.jpeg",
     "welcomeMsg": "Bringing futuristic ideas to reality",
-    "skills": ["HTML", "CSS", "JavaScript", "git", "Design", "Photography", "Sketching"],
+    "skills": ["HTML", "CSS", "JavaScript", "git", "JQuery", "Ajax"],
 };
 
 
@@ -33,7 +33,7 @@ $("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
 $("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
 $("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 $("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
-
+$("#skills").append(HTMLskills.replace("%data%", bio.skills[5]));
 
 var education = {
     "schools": [
@@ -92,50 +92,39 @@ $(".education-entry").append(HTMLonlineURL.replace("%data%", (education.onlineCo
 
 
 
+var work = {
+    "workPlace": [
+    {
+        "jobPosition": "Web Developer",
+        "employer": "Freelance",
+        "years": 0.3,
+        "city": "Remote",
+        "description": "Built websites for clients who hired me through freelance working sites"
+    },
+    {
+        "jobPosition": "Clinical SAS Programmer trainee",
+        "employer": "Rang Technologies",
+        "years": "Oct 2015 to Feb 2016",
+        "city": "Piscataway, NJ, US",
+        "description": "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards"
+    }
+    ]
+}
 
-// Dot notation way of accessing properties of the object
-
-bio.location = "Bengaluru";
-$("#footerContacts").append(HTMLlocation.replace("%data%", bio.location));
-
-bio.skills = ["HTML", "CSS", "JavaScript", "git", "Design", "Photography", "Sketching"];
-$("#header").append(HTMLskillsStart);
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
-$("#skills").append(HTMLskills.replace("%data%", bio.skills[4]));
-
-
-var work = {};
-
-work.jobPosition = "Web Developer";
-work.employer = "Freelance";
-work.years = 0.3;
-work.city = "Remote";
-work.description = "Built websites for clients who hired me through freelance working sites";
 
 $("#workExperience").append(HTMLworkStart);
-$(".work-entry").append(HTMLworkEmployer.replace("%data%", work.employer));
-$(".work-entry").append(HTMLworkTitle.replace("%data%", work.jobPosition));
-$(".work-entry").append(HTMLworkDates.replace("%data%", work.years));
-$(".work-entry").append(HTMLworkLocation.replace("%data%", work.city));
-$(".work-entry").append(HTMLworkDescription.replace("%data%", work.description));
+$(".work-entry").append(HTMLworkEmployer.replace("%data%", work.workPlace[0].employer));
+$(".work-entry").append(HTMLworkTitle.replace("%data%", work.workPlace[0].jobPosition));
+$(".work-entry").append(HTMLworkDates.replace("%data%", work.workPlace[0].years));
+$(".work-entry").append(HTMLworkLocation.replace("%data%", work.workPlace[0].city));
+$(".work-entry").append(HTMLworkDescription.replace("%data%", work.workPlace[0].description));
 
 
-// Bracket notation way of accessing properties of an object
-
-work["jobPosition2"] = "Clinical SAS Programmer trainee";
-work["employer2"] = "Rang Technologies";
-work["years2"] = "Oct 2015 to Feb 2016";
-work["city2"] = "Piscataway, NJ, US";
-work["description2"] = "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards";
-
-$(".work-entry").append(HTMLworkEmployer.replace("%data%", (work["employer2"])));
-$(".work-entry").append(HTMLworkTitle.replace("%data%", (work["jobPosition2"])));
-$(".work-entry").append(HTMLworkDates.replace("%data%", (work["years2"])));
-$(".work-entry").append(HTMLworkLocation.replace("%data%", (work["city2"])));
-$(".work-entry").append(HTMLworkDescription.replace("%data%", (work["description2"])));
+$(".work-entry").append(HTMLworkEmployer.replace("%data%", work.workPlace[1].employer ));
+$(".work-entry").append(HTMLworkTitle.replace("%data%", work.workPlace[1].jobPosition));
+$(".work-entry").append(HTMLworkDates.replace("%data%", work.workPlace[1].years));
+$(".work-entry").append(HTMLworkLocation.replace("%data%", work.workPlace[1].city));
+$(".work-entry").append(HTMLworkDescription.replace("%data%", work.workPlace[1].description));
 
 
 
