@@ -106,13 +106,9 @@ bio.display = function() {
     }
     for (contact in bio.contacts) {
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
-
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[contact].twitter);
-
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts[contact].github);
-
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
 
     $("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation),
