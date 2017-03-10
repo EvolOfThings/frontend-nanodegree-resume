@@ -2,14 +2,16 @@
 
 var bio = {
     "name": "Rishad Yamnoor",
-    "role": ["Web Developer, UI Designer"],
-    "contacts": {
+    "role": "Web Developer, UI Designer",
+    "contacts": [
+    {
         "mobile": "966-323-9799",
         "email": "rishad.yammnoor@gmail.com",
         "twitter": "@EvolofThings",
         "github": "evolofthings",
         "location": "Bengaluru"
-    },
+    }
+    ],
     "bioPic": "images/WhatsAppDP.jpeg",
     "welcomeMsg": "Bringing futuristic ideas to reality",
     "skills": ["HTML", "CSS", "JavaScript", "git", "JQuery", "Ajax"],
@@ -81,6 +83,47 @@ var projects = {
     ]
 }
 
+// For-in loop is not suitable for this bio object
+
+bio.display = function() {
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole).prepend(formattedName);
+
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    $("#header").append(formattedBioPic);
+
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+    $("#header").append(formattedWelcomeMsg);
+
+    $("#header").append(HTMLskillsStart);
+// Because it's an array of skills
+    if (bio.skills.length > 0) {
+        for (skill in bio.skills) {
+            var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+            $("#skills").append(formattedSkills);
+        }
+    }
+    for (contact in bio.contacts) {
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
+
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
+
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[contact].twitter);
+
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts[contact].github);
+
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
+
+    $("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation),
+    $("#footerContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation);
+    }
+}
+bio.display();
+
+
+
+
 
 function displayWork() {
     for (var job in work.jobs) {
@@ -89,13 +132,15 @@ function displayWork() {
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].jobPosition);
         var formattedEmployerTitle = formattedEmployer + formattedTitle;
-        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-
         $(".work-entry:last").append(formattedEmployerTitle);
+
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
         $(".work-entry:last").append(formattedDates);
+
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
         $(".work-entry:last").append(formattedLocation);
+
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formattedDescription);
     }
 }
@@ -129,6 +174,18 @@ projects.display = function () {
 projects.display();
 
 
+// Internationalize Names
+
+// function inName(name) {
+//     name =  name.trim().split(" ");
+//     name[0] = name[0].slice(0,1).toUpperCase() +
+//     name[0].slice(1).toLowerCase();
+//     name[1] = name[1].toUpperCase();
+
+// return name[0] +" "+ name[1];
+// }
+// $("#main").append(internationalizeButton);
+
 
 $("#mapDiv").append(googleMap);
 
@@ -148,27 +205,12 @@ $("#mapDiv").append(googleMap);
 
 
 
-// Internationalize Names
-
-// function inName(name) {
-//     name =  name.trim().split(" ");
-//     name[0] = name[0].slice(0,1).toUpperCase() +
-//     name[0].slice(1).toLowerCase();
-//     name[1] = name[1].toUpperCase();
-
-// return name[0] +" "+ name[1];
-// }
-// $("#main").append(internationalizeButton);
 
 
 
 
-// $(document).click(function(loc) {
-// var x = loc.pageX;
-// var y = loc.pageY;
 
-// logClicks(x,y);
-// });
+
 
 
 
