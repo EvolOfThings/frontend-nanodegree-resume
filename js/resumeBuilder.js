@@ -14,7 +14,7 @@ var bio = {
     ],
     "bioPic": "images/WhatsAppDP.jpeg",
     "welcomeMsg": "Bringing futuristic ideas to reality",
-    "skills": ["HTML", "CSS", "JavaScript", "git", "JQuery", "Ajax"],
+    "skills": ["HTML", "CSS", "JavaScript", "Git", "JQuery", "Ajax"],
 };
 
 
@@ -97,20 +97,15 @@ bio.display = function() {
     $("#header").append(formattedWelcomeMsg);
 
     $("#header").append(HTMLskillsStart);
-// Because it's an array of skills
-    if (bio.skills.length > 0) {
-        for (skill in bio.skills) {
-            var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
-            $("#skills").append(formattedSkills);
-        }
-    }
+    var formattedSkills = HTMLskills.replace("%data%", bio.skills.join(",  "));
+    $("#skills").append(formattedSkills);
+
     for (contact in bio.contacts) {
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[contact].twitter);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts[contact].github);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
-
     $("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation),
     $("#footerContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation);
     }
