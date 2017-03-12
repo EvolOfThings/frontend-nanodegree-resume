@@ -3,15 +3,13 @@
 var bio = {
     "name": "Rishad Yamnoor",
     "role": "Web Developer, UI Designer",
-    "contacts": [
-    {
+    "contacts": {
         "mobile": "+91 966-323-9799",
         "email": "rishad.yammnoor@gmail.com",
         "twitter": "@EvolofThings",
         "github": "evolofthings",
         "location": "Bengaluru"
-    }
-    ],
+    },
     "bioPic": "images/WhatsAppDP.jpeg",
     "welcomeMsg": "Bringing futuristic ideas to reality",
     "skills": ["HTML", "CSS", "JavaScript", "Git", "JQuery", "Ajax"],
@@ -20,28 +18,27 @@ var bio = {
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    $("#header").prepend(formattedRole).prepend(formattedName);
+    $("#header").prepend(formattedName, formattedRole);
+
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts['mobile']);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts['email']);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts['twitter']);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts['github']);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts['location']);
+    $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-    $("#header").append(formattedBioPic);
-
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
-    $("#header").append(formattedWelcomeMsg);
+    $("#header").append(formattedBioPic, formattedWelcomeMsg);
 
-    $("#header").append(HTMLskillsStart);
-    var formattedSkills = HTMLskills.replace("%data%", bio.skills.join(",  "));
-    $("#skills").append(formattedSkills);
-
-    for (contact in bio.contacts) {
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
-    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[contact].twitter);
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts[contact].github);
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
-    $("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation),
-    $("#footerContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub, formattedLocation);
+    if(bio.skills.length > 0){
+        $("#header").append(HTMLskillsStart);
+        bio.skills.forEach(function(skill){
+                var formattedSkills = HTMLskills.replace("%data%", skill);
+                $("#skills").append(formattedSkills);
+        });
     }
-}
+};
 
 
 var education = {
@@ -126,17 +123,18 @@ var work = {
         "employer": "Rang Technologies",
         "dates": "Oct 2015 to Feb 2016",
         "location": "Piscataway, NJ, US",
-        "description": "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards"
+        "description": "Creating Tables, Lists, Figures and Graphs while conforming to ADam and SDTM coding standards",
+        "url": "http://www.rangtech.com/"
     }
     ]
-}
+};
 //work display function
 work.display = function () {
     if(work.jobs.length > 0) {
         work.jobs.forEach(function(job){
             $("#workExperience").append(HTMLworkStart);
 
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedEmployer = HTMLworkEmployer.replace("#", job.url).replace("%data%", job.employer);
             var formattedTitle = HTMLworkTitle.replace("%data%", job.jobPosition);
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
             var formattedDates = HTMLworkDates.replace("%data%", job.dates);
@@ -156,33 +154,30 @@ var projects = {
         "title": "Portfolio",
         "dates": "2017",
         "description": "Portfolio of projects that I have built as part of Udacity Nanodegree program.",
-        "images": ["images/197x148.gif"]
+        "images": ["images/197x148.gif"],
+        "url": "https://evolofthings.github.io/Udacity-Front-End-Nanodegree/#"
     }
     ]
 }
 projects.display = function () {
-    for (var project in projects.projects) {
-        $("#projects").append(HTMLprojectStart);
-
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDates);
-
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDescription);
-
-        // Incase if there are multiple images for a project
-
-        if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images) {
-                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-                $(".project-entry:last").append(formattedImage);
+    if (projects.projects.length > 0) {
+        projects.projects.forEach(function(project){
+            $("#projects").append(HTMLprojectStart);
+            $(".project-entry:last").append(function(){
+                var formattedTitle = HTMLprojectTitle.replace("#", project.url).replace("%data%", project.title);
+                var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
+                var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+            });
+            if (project.length > 0) {
+                projects.images.forEach(function(image){
+                    $(".project-entry:last").append(function(){
+                        var formattedImage = HTMLprojectImage.replace("%data%", project.image.images);
+                    });
+                });
             }
-        }
+        });
     }
-}
+};
 
 
 // Resume sections displayed
