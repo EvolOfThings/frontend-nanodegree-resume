@@ -154,7 +154,7 @@ var projects = {
         "title": "Portfolio",
         "dates": "2017",
         "description": "Portfolio of projects that I have built as part of Udacity Nanodegree program.",
-        "images": ["images/197x148.gif"],
+        "images": ["images/197x148.gif", "images/197x148.gif"],
         "url": "https://evolofthings.github.io/Udacity-Front-End-Nanodegree/#"
     }
     ]
@@ -163,16 +163,16 @@ projects.display = function () {
     if (projects.projects.length > 0) {
         projects.projects.forEach(function(project){
             $("#projects").append(HTMLprojectStart);
-            $(".project-entry:last").append(function(){
+
                 var formattedTitle = HTMLprojectTitle.replace("#", project.url).replace("%data%", project.title);
                 var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
                 var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
-            });
-            if (project.length > 0) {
-                projects.images.forEach(function(image){
-                    $(".project-entry:last").append(function(){
-                        var formattedImage = HTMLprojectImage.replace("%data%", project.image.images);
-                    });
+            $(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription);
+
+            if (project.images.length > 0) {
+                project.images.forEach(function(image){
+                    var formattedImage = HTMLprojectImage.replace("%data%", image);
+                    $(".project-entry:last").append(formattedImage);
                 });
             }
         });
