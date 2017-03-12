@@ -185,10 +185,6 @@ projects.display();
 
 
 
-
-
-
-
 // To record the click locations
 
 $(document).click(function(loc) {
@@ -211,6 +207,7 @@ return name[0] +" "+ name[1];
 }
 $("#header").append(internationalizeButton);
 
+//Google map for the places job locations
 
 $("#mapDiv").append(googleMap);
 
