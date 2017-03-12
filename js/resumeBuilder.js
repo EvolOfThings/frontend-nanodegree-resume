@@ -151,7 +151,7 @@ var projects = {
         "title": "Portfolio",
         "dates": "2017",
         "description": "Portfolio of projects that I have built as part of Udacity Nanodegree program.",
-        "images": ["images/197x148.gif", "images/197x148.gif"],
+        "images": ["images/project1.png", "images/project2.png"],
         "url": "https://evolofthings.github.io/Udacity-Front-End-Nanodegree/#"
     }
     ]
@@ -189,7 +189,14 @@ projects.display();
 
 
 
+// To record the click locations
 
+$(document).click(function(loc) {
+var x = loc.pageX;
+var y = loc.pageY;
+
+logClicks(x,y);
+});
 
 
 // Internationalize Names
