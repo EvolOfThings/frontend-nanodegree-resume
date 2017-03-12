@@ -5,7 +5,7 @@ var bio = {
     "role": "Web Developer, UI Designer",
     "contacts": {
         "mobile": "+91 966-323-9799",
-        "email": "rishad.yammnoor@gmail.com",
+        "email": "rishad.yamnoor@gmail.com",
         "twitter": "@EvolofThings",
         "github": "evolofthings",
         "location": "Bengaluru"
@@ -14,7 +14,7 @@ var bio = {
     "welcomeMsg": "Bringing futuristic ideas to reality",
     "skills": ["HTML", "CSS", "JavaScript", "Git", "JQuery", "Ajax"],
 };
-// For-in loop is not suitable for this bio object
+//bio display function
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -25,7 +25,8 @@ bio.display = function() {
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts['twitter']);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts['github']);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts['location']);
-    $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
+    $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+    $("#footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
@@ -39,7 +40,6 @@ bio.display = function() {
         });
     }
 };
-
 
 var education = {
     "schools": [
@@ -74,7 +74,8 @@ var education = {
         "url": "https://freecodecamp.com"
     }
     ]
-}
+};
+//education display function
 education.display = function () {
     if(education.schools.length > 0) {
         education.schools.forEach(function(school){
@@ -106,8 +107,6 @@ education.display = function () {
         });
     }
 };
-
-
 
 var work = {
     "jobs": [
@@ -146,8 +145,6 @@ work.display = function () {
     }
 };
 
-
-
 var projects = {
     "projects": [
     {
@@ -158,7 +155,8 @@ var projects = {
         "url": "https://evolofthings.github.io/Udacity-Front-End-Nanodegree/#"
     }
     ]
-}
+};
+//projects display function
 projects.display = function () {
     if (projects.projects.length > 0) {
         projects.projects.forEach(function(project){
@@ -179,9 +177,7 @@ projects.display = function () {
     }
 };
 
-
 // Resume sections displayed
-
 bio.display();
 education.display();
 work.display();
@@ -198,15 +194,15 @@ projects.display();
 
 // Internationalize Names
 
-// function inName(name) {
-//     name =  name.trim().split(" ");
-//     name[0] = name[0].slice(0,1).toUpperCase() +
-//     name[0].slice(1).toLowerCase();
-//     name[1] = name[1].toUpperCase();
+function inName(name) {
+    name =  name.trim().split(" ");
+    name[0] = name[0].slice(0,1).toUpperCase() +
+    name[0].slice(1).toLowerCase();
+    name[1] = name[1].toUpperCase();
 
-// return name[0] +" "+ name[1];
-// }
-// $("#main").append(internationalizeButton);
+return name[0] +" "+ name[1];
+}
+$("#header").append(internationalizeButton);
 
 
 $("#mapDiv").append(googleMap);
