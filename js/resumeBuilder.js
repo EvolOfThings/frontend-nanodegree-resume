@@ -10,9 +10,9 @@ var bio = {
         "github": "evolofthings",
         "location": "Bengaluru"
     },
-    "bioPic": "images/WhatsAppDP.jpeg",
-    "welcomeMsg": "Bringing futuristic ideas to reality",
-    "skills": ["HTML", "CSS", "JavaScript", "Git", "JQuery", "Ajax"],
+    "biopic": "images/WhatsAppDP.jpeg",
+    "welcomeMessage": "Bringing futuristic ideas to reality.",
+    "skills": ["HTML", "CSS", "JavaScript", "Git", "jQuery", "Ajax"],
 };
 //bio display function
 bio.display = function() {
@@ -28,8 +28,8 @@ bio.display = function() {
     $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
     $("#footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
 
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedBioPic, formattedWelcomeMsg);
 
     if(bio.skills.length > 0){
@@ -111,14 +111,14 @@ education.display = function () {
 var work = {
     "jobs": [
     {
-        "jobPosition": "Web Developer",
+        "title": "Web Developer",
         "employer": "Freelance",
         "dates": 'in progress',
         "location": "Remote",
         "description": "Built websites for clients who hired me through freelance working sites"
     },
     {
-        "jobPosition": "Clinical SAS Programmer trainee",
+        "title": "Clinical SAS Programmer trainee",
         "employer": "Rang Technologies",
         "dates": "Oct 2015 to Feb 2016",
         "location": "Piscataway, NJ, US",
@@ -134,7 +134,7 @@ work.display = function () {
             $("#workExperience").append(HTMLworkStart);
 
             var formattedEmployer = HTMLworkEmployer.replace("#", job.url).replace("%data%", job.employer);
-            var formattedTitle = HTMLworkTitle.replace("%data%", job.jobPosition);
+            var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
             var formattedDates = HTMLworkDates.replace("%data%", job.dates);
             var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
